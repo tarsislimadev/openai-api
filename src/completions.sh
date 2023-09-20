@@ -1,17 +1,13 @@
 #!/usr/bin/sh
 
-# inputs
-
 . .env
 
-path="completions"
+PATH="completions"
 
-# runner
+CONTENT="Say this is a test!"
 
-resp=$( bash get.sh "${path}" | jq )
-
-# outputs
-
-bash create.sh "${path}" "${datetime}" "datetime" "${datetime}"
-
-bash create.sh "${path}" "${datetime}" "resp" "${resp}"
+/usr/bin/curl \
+  "https://api.openai.com/v1/${PATH}" \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer ${API_VERSION}" \
+  --data "$( . ./data.raw.sh "${PATH}" "${CONTENT}" )"
