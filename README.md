@@ -1,4 +1,4 @@
-# [OpenAI]()
+# [OpenAI](https://platform.openai.com/docs/quickstart/build-your-application)
 
 ## .env
 
