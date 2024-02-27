@@ -4,12 +4,10 @@
 
 . .env
 
-PATH="completions"
+. datetime.sh
 
 FILENAME="${1}"
 
-/usr/bin/curl  https://api.openai.com/v1/images/variations \
-  --header "Authorization: Bearer ${API_VERSION}" \
-  -F image="@${FILENAME}" \
-  -F n=2 \
-  -F size="1024x1024"
+resp=$( /usr/bin/curl -sL "https://api.openai.com/v1/images/variations" -H "Authorization: Bearer ${API_VERSION}" -F image="@${FILENAME}" -F n=2 )
+
+. create.sh "images/variations" "${datetime}" "json" "${resp}"
