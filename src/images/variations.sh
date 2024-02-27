@@ -1,5 +1,7 @@
 #!/usr/bin/sh
 
+# https://platform.openai.com/docs/api-reference/images/createVariation
+
 . .env
 
 PATH="completions"
