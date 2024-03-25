@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  python:
+    build: './src/python'
+    volumes:
+      - './src/python:/app'
